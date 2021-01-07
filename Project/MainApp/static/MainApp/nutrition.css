@@ -1,0 +1,55 @@
+
+.nutrition-label {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 12px;
+    border: 2px solid #000000;
+    background-color: white;
+    padding: 5px;
+    line-height: 1.2;
+    width: 260px;
+
+}
+
+.nutrition-facts {
+    margin: 0 0 2px 0;
+    padding-bottom: 2px;
+    font-size: 28px;
+    line-height: 1;
+    color: black;
+}
+
+
+.nutrition-row {
+    display: flex;
+    padding: 2px 0;
+}
+
+.nutrition-column {
+    flex-grow: 1;
+    color: black;
+}
+
+.bold {
+   font-weight: bold;
+}
+
+.calories {
+    font-size: 25px;
+}
+
+.indent {
+    margin-left: .5rem;
+}
+
+.border-bottom-sm {
+    border-bottom: 1px solid #000000;
+}
+
+.border-bottom-md {
+    border-bottom: 5px solid #000000;
+}
+
+.border-bottom-lg {
+    border-bottom: 8px solid #000000;
+}

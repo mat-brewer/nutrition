@@ -1,0 +1,94 @@
+{% extends 'MainApp/dashboard_base.html' %}     
+
+{% block dashboard %}
+
+<div id="card-container" class="content-row">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card scroll">
+                <h5 class="card-header text-center">Your Foods</h5>
+                {% for food in foods %}
+                    <a href="{% url 'food-view' food.user food.id food %}">{{ food }}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card scroll">
+                <h5 class="card-header text-center">Your Meals</h5>
+
+                {% for meal in meals %}
+                    <a href="{% url 'meal-view' meal.user meal.id meal %}">{{ meal }}</a>
+                {% endfor %}
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card scroll">
+                <h5 class="card-header text-center">Your Entries</h5>
+                {% for day in days %}
+                    <div>
+                        <a href="{% url 'day-view' day.user day.id day.date %}">{{ day }}</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="today-row col-md-12">
+            <div class="card scroll">
+                <h5 class="card-header text-center">Today</h5>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="today-entry col-md-4">
+                            <h5 class="today-header">Foods</h5>
+
+                            {% for day in days %}
+                                {% if day.is_today is True %}
+
+                                    {% for meal in day.meals.all %}
+                                        {% for food in meal.foods.all %}
+                                            <div class="card-items">{{food}}</div>
+                                        {% endfor %}
+                                    {% endfor %}
+
+                                {% endif %}
+                            {% endfor %}
+
+                        </div>
+                        <div class="today-entry col-md-4">
+                            <h5 class="today-header">Meals</h5>
+
+                            {% for day in days %}
+                                {% if day.is_today is True %}
+
+                                    {% for meal in day.meals.all %}
+                                        <div class="card-items">{{ meal }}</div>
+                                    {% endfor %}
+
+                                {% endif %}
+                            {% endfor %}
+
+                        </div>
+                        <div class="col-md-4">
+                            <h5 class="today-header">Calories/Macros</h5>
+                            {% for day in days %}
+                                {% if day.is_today is True %}
+                                    <div class="card-items">Protein: {{ day.total_protein }}g</div>
+                                    <div class="card-items">Fats: {{ day.total_fats }}g</div>
+                                    <div class="card-items">Carbs: {{ day.total_carbs }}g</div>
+                                    <div class="card-items">{{ day.total_calories }}</div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock dashboard %}

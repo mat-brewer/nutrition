@@ -1,0 +1,18 @@
+{% extends 'MainApp/dashboard_base.html' %}
+{% load crispy_forms_tags %}
+{% block dashboard %}
+
+<div class="content-section">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="forms">
+            <legend class="border-bottom mb-4">Entry</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-reg" type="submit">Add</button>
+        </div>
+    </form>
+</div>
+
+{% endblock dashboard %}

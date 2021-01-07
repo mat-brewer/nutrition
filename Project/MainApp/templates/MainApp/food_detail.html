@@ -1,0 +1,92 @@
+{% extends 'MainApp/dashboard_base.html' %}
+
+{% block dashboard %}
+
+
+<section class="nutrition-label">
+    <header class="nutrition-header border-bottom-lg">
+        <h1 class="nutrition-facts border-bottom-sm">{{ object.name }}</h1>
+        <div class="nutrition-row">
+            <div class="nutrition-column text-md bold">Serving Size</div>
+            <div class="nutrition-column text-md bold text-right">{{ object.serving_size_g }}g</div>
+        </div>
+    </header>
+    <div class="nutrition-row border-bottom-md">
+        <div class="nutrition-column text-md bold">
+            <div class="calories">Calories</div>
+        </div>
+        <div class="nutrition-column calories amount align-bottom text-right">
+            {{ object.calories }}
+        </div>
+    </div>
+
+    <div class="nutrition-row border-bottom-sm">
+        <div class="nutrition-column text-md bold text-right">Grams</div>
+    </div>
+
+    <div class="nutrition-row border-bottom-sm">
+        <div class="nutrition-column text-md bold">Total Fat</div>
+        <div class="nutrition-column text-md  text-right">{{ object.total_fats }}g</div>
+    </div>
+    <div class="nutrition-row border-bottom-sm">
+        <div class="nutrition-column text-md bold">Saturated Fats</div>
+        <div class="nutrition-column text-md  text-right">{{ object.saturated_fats }}g</div>
+    </div>
+    <div class="nutrition-row border-bottom-sm">
+        <div class="nutrition-column text-md bold indent">Polyunsaturated fat</div>
+        <div class="nutrition-column text-md  text-right">{{ object.poly_unsaturated_fats }}g</div>
+    </div>
+    <div class="nutrition-row border-bottom-sm">
+        <div class="nutrition-column text-md bold indent">Monounsaturated fat</div>
+        <div class="nutrition-column text-md  text-right">{{ object.mono_unsaturated_fats }}g</div>
+    </div>
+    <div class="nutrition-row border-bottom-sm">
+        <div class="nutrition-column text-md bold indent">Sodium</div>
+        <div class="nutrition-column text-md  text-right">{{ object.sodium }}mg</div>
+    </div>
+
+    <div class="nutrition-row border-bottom-sm">
+        <div class="nutrition-column text-md bold">Total Carbohydrates</div>
+        <div class="nutrition-column text-md  text-right">{{ object.total_carbohydrates }}g</div>
+    </div>
+    <div class="nutrition-row border-bottom-sm">
+        <div class="nutrition-column text-md bold indent">Sugars</div>
+        <div class="nutrition-column text-md  text-right">{{ object.sugars }}g</div>
+    </div>
+    <div class="nutrition-row border-bottom-sm">
+        <div class="nutrition-column text-md bold indent">Fiber</div>
+        <div class="nutrition-column text-md  text-right">{{ object.fiber }}g</div>
+    </div>
+
+    <div class="nutrition-row border-bottom-lg">
+        <div class="nutrition-column text-md bold ">Protein</div>
+        <div class="nutrition-column text-md  text-right">{{ object.protein }}g</div>
+    </div>
+
+    <div class="nutrition-row border-bottom-sm">
+        <div class="nutrition-column text-md bold ">Calcium, Ca</div>
+        <div class="nutrition-column text-md  text-right">{{ object.calcium }}mg</div>
+    </div>
+    <div class="nutrition-row border-bottom-sm">
+        <div class="nutrition-column text-md bold ">Iron, Fe</div>
+        <div class="nutrition-column text-md  text-right">{{ object.iron }}mg</div>
+    </div>
+    <div class="nutrition-row border-bottom-sm">
+        <div class="nutrition-column text-md bold ">Magnesium, Mg</div>
+        <div class="nutrition-column text-md  text-right">{{ object.magnesium }}mg</div>
+    </div>
+    <div class="nutrition-row border-bottom-sm">
+        <div class="nutrition-column text-md bold ">Potassium, K</div>
+        <div class="nutrition-column text-md  text-right">{{ object.potassium }}mg</div>
+    </div>
+    <div class="nutrition-row border-bottom-md">
+        <div class="nutrition-column text-md bold ">Vitamin C, total absorbic acid</div>
+        <div class="nutrition-column text-md  text-right">{{ object.vitamin_c }}mg</div>
+    </div>
+
+</section>
+    <div>
+        <a class="btn btn-reg" href="{% url 'food-update' object.id %}">Update</a>
+        <a class="btn btn-delete" href="{% url 'food-delete' object.id %}">Delete</a>
+    </div>
+{% endblock dashboard %}

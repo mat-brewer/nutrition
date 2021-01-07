@@ -1,0 +1,19 @@
+{% extends 'MainApp/dashboard_base.html' %}
+{% block dashboard %}
+
+
+<div class="content-section">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Delete Entry</legend>
+            <h2>Are you sure you want to delete "{{ object }}"?</h2>
+        </fieldset>
+        <div>
+            <button class="btn btn-delete" type="submit">Yes, I'm Sure</button>
+            <a class="btn btn-reg" href="{% url 'day-view' day.user day.id day.date %}">Cancel</a>
+        </div>
+    </form>
+</div>
+
+{% endblock dashboard %}

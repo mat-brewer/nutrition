@@ -1,0 +1,74 @@
+{% extends 'MainApp/base.html' %}
+
+{% block content %}
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <a href="{% url 'dashboard' %}"><h3>Dashboard</h3></a>
+            </div>
+
+            <ul class="items">
+                <li>
+                    <a href="{% url 'day-create' %}">Create New Entry</a>
+                </li>
+                <li>
+                    <a href="{% url 'meal-create' %}">Create New Meal</a>
+                </li>
+                <li>
+                    <a href="{% url 'food-create' %}">Create New Food</a>
+                </li>
+                <li>
+                    <a href="{% url 'profile' %}">Profile</a>
+                </li>
+                <li>
+                    <a href="{% url 'logout' %}">Logout</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="dash-content">
+                <div class="container-fluid">
+                    <div class="content-row">
+                        <nav class="navbar-2 col-md-12">
+                            <button type="button" id="sidebarCollapse" class="btn sidebar-toggler">
+                                <span class="fa fa-align-left" aria-hidden="true"></span>
+                            </button>
+                            <button class="btn navbar-info" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                                <span class="fa fa-align-right" aria-hidden="true"></span>
+                            </button>
+                        </nav>
+                    </div>
+
+                    <div>
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }}">
+                                {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+
+                        {% block dashboard %}{% endblock dashboard %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>  
+
+{% endblock content %}

@@ -1,0 +1,92 @@
+﻿{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="{% static 'resume/main.css' %}" rel="stylesheet">
+    <link href="{% static 'MainApp/nutrition.css' %}" rel="stylesheet">
+    <title>Mat Brewer</title>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static 'img/bootstrapLogo.png' %}" style="width:49px;height:49px;"> Dila Project
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-target="#slide" data-slide-to="0">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<div class="portfolio" id="portfolio"> {% block content %}{% endblock content %} </div>
+
+{#contact section#}
+<footer id="contact">
+    <div class="container-fluid padding">
+        <div class="row text-center">
+
+            <div class="col-12">
+                <h4>Contact</h4>
+            </div>
+
+            <div class="col-md-4">
+                <hr class="light" />
+                <h5>Email</h5>
+                <hr class="light" />
+                <a href="mailto: matbrewerwork@gmail.com"><i class="fa fa-paper-plane"></i></a>
+                <a class="footer-link" href="mailto: matbrewerwork@gmail.com">matbrewerwork@gmail.com</a>
+            </div>
+
+            <div class="col-md-4">
+                <hr class="light" />
+                <h5>Phone Number</h5>
+                <hr class="light" />
+                <p class="phone-icon"><i class="fa fa-mobile"></i>  (480)-294-0317</p>
+            </div>
+
+            <div class="col-md-4">
+                <hr class="light" />
+                <h5>Socials</h5>
+                <hr class="light" />
+                <div class="social padding">
+                    <a href="https://www.linkedin.com/in/mat-brewer-business/"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/mat-brewer"><i class="fab fa-github" aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <hr class="light-100" />
+                <h7>&copy; Mat Brewer | Dila Project</h7>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

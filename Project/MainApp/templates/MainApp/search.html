@@ -1,0 +1,66 @@
+﻿{% extends 'MainApp/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="row search_submit">
+    <div class="col-12">
+        <form method="get" action="{% url 'search' %}">
+            <input id="myinput" type="text" name="search_query">
+            <input type="submit" value="Submit"/>
+        </form>
+    </div>
+</div>
+
+
+<script>
+    var foods_js = {}
+</script>
+
+
+<div>
+    {% for i in foods %}
+
+    <script>var nutrients_js = {}</script>
+
+        <a id="{{ i.description }}" href="#food" data-toggle="collapse">{{ i.description }}</a>
+        {# commented script here #}
+        {% for j in i.foodNutrients %}
+            <div id="food" class="collapse">
+                <h3>{{j.nutrientName}} {{j.value}}</h3>
+            </div>
+
+            <script>
+                nutrients_js["{{j.nutrientName}}"] = "{{j.value}}"
+            </script>
+
+        {% endfor %}
+        <div>
+            <a id="{{ i.description }}-btn" href="{% url 'food-create' %}">Add Food</a>
+        </div>
+        <hr />
+
+        <script>foods_js["{{ i.description }}"] = nutrients_js</script>
+    {% endfor %}
+</div>
+
+
+<script>
+    console.log(foods_js)
+</script>
+
+
+<script>
+    var formData = JSON.stringify(foods_js)
+    console.log(formData)
+</script>
+
+<div class="row search_submit">
+    <div class="col-12">
+        <form method="POST" action="{% url 'search' %}">
+        </form>
+    </div>
+</div>
+
+
+{% endblock content %}
+

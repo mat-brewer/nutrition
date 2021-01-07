@@ -1,0 +1,73 @@
+{% extends 'MainApp/base.html' %}
+
+{% block content %}
+
+<h1>about</h1>
+    <div class="container-fluid">
+      <div class="row">
+
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  <span data-feather="home"></span>
+                  Dashboard <span class="sr-only">(current)</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+<div>
+    {% if user.is_authenticated %}
+        <h1>Foods you've created</h1>
+        {% for food in foods %}
+            <div>{{ food }}</div>
+        {% endfor %}
+
+        <h1>Create a Food</h1>
+        <a href="{% url 'food-create' %}">Create Food</a>
+
+        <h1>Entries</h1>
+        {% for day in days %}
+            <div>{{ day }}</div>
+            <div>{{ day.user }}</div>
+            <div>
+                {% for i in day.meals.all %}
+                <a href="{% url 'meal-view' day.user i.id i %}">{{ i }} view</a>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+
+    {% for day in days %}
+    <div>
+        {% for i in day.meals.all %}
+            <a href="{% url 'meal-update' i.id %}">{{ i }} update</a>
+        {% endfor %}
+    </div>
+
+    {% endfor %}
+
+
+    {% for day in days %}
+        <div>{{ day.today }}</div>
+        <div>
+            <a href="{% url 'day-view' day.user day.id day.date %}">{{ day }} view</a>
+        </div>
+    {% endfor %}
+
+
+    {% for day in days %}
+        <div>
+            <a href="{% url 'day-update' day.id %}">{{ day }} update</a>
+        </div>
+
+    {% endfor %}
+</div>
+
+{% endblock content %}

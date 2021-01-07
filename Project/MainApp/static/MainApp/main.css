@@ -1,0 +1,170 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #121212;
+    color: #ffffff;
+}
+
+.navbar {
+    background: #121212;
+}
+
+.navbar .nav-link, .navbar-brand,
+.navbar .nav-link:hover, .navbar-brand:hover {
+    color: #ffffff;
+}
+
+
+.navbar-2 {
+    padding: 15px;
+    background: #2a2a2b;
+}
+
+.navbar-info {
+    background-color: #ffffff;
+    display: none;
+}
+
+/*cards*/
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 #000000;
+    transition: 0.3s;
+    height: 15rem;
+    margin-top: 2rem;
+    background-color: #2a2a2b;
+}
+
+.card a {
+    color: #ffffff;
+    opacity: .86;
+}
+
+.card a:hover {
+    color: #BB86FC;
+}
+
+.card-header {
+    text-decoration: underline;
+    opacity: .6;
+}
+
+.card-items {
+    color: #ffffff;
+    opacity: .86;
+}
+
+.scroll {
+    max-height: 15rem;
+    overflow-y: scroll;
+}
+
+#card-container {
+    margin-bottom: 2rem;
+}
+
+.today-entry {
+    border-right: 3px solid;
+    color: #ffffff;
+}
+
+.today-header {
+    text-decoration: underline;
+    opacity: .6;
+}
+
+
+/* buttons */
+.btn-reg {
+    color: #000000;
+    background-color: #BB86FC;
+}
+
+.btn-reg:hover {
+    opacity: .86;
+    color: #000000;
+    background-color: #BB86FC;
+}
+
+.btn-delete {
+    color: #000000;
+    background-color: #cf6679;
+}
+
+.btn-delete:hover {
+    opacity: .86;
+    color: #000000;
+    background-color: #cf6679;
+}
+
+
+/*forms*/
+.forms {
+    margin-top: 1.5rem;
+}
+
+.forms input, select {
+    max-width: 50%;
+}
+
+.form-group {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.form-group input {
+    max-width: 50%;
+}
+
+#id_foods {
+    min-height: 300px;
+}
+
+/* object detail views */
+.detail-block {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.meal-food {
+    padding-left: 1rem;
+}
+
+
+
+/*---Media Queries --*/
+@media (max-width: 992px) {
+}
+
+@media (max-width: 768px) {
+    .today-entry {
+        border-right: none;
+        padding-bottom: 1rem;
+    }
+
+    .navbar-info {
+        background-color: #BB86FC;
+        color: black;
+        display: inline;
+    }
+
+    .navbar-info span {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .today-entry {
+        border-right: none;
+        padding-bottom: 1rem;
+    }
+
+    .navbar-info {
+        background-color: #BB86FC;
+        color: black;
+        display: inline;
+    }
+
+    .navbar-info span {
+        display: none;
+    }
+}

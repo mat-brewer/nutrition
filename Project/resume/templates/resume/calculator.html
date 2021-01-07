@@ -1,0 +1,101 @@
+{% load static %}
+
+<div class="modal fade" id="calculator-modal">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>Basic Calculator</h1>
+            </div>
+            <div class="calc-body modal-body">
+                <div class="container-fluid">
+
+                    <div class="display">
+                        <p class="display-p" id="expression"></p>
+                    </div>
+ 
+                    <div class="calc-padding row justify-content-center">
+                        <div>
+                            <input class="calc-button top-op" type="button" value="C" onclick="setExpression('')"/>
+                        </div>
+                        <div>
+                            <input class="calc-button top-op" type="button" value="&larr;" onclick="setExpression('backspace')"/>
+                        </div>
+                        <div>
+                           <input class="calc-button top-op" type="button" value="&#xb1;" onclick="setExpression('+-')">
+                        </div>
+                        <div>
+                            <input class="calc-button right-op" type="button" value="&#x221A;" onclick="solve(input='Sqrt')">
+                        </div>
+                    </div>
+
+                    <div class="calc-padding row justify-content-center">
+                        <div>
+                            <input class="calc-button num" type="button" value="7" onclick="setExpression('7')">
+                        </div>
+                        <div>
+                            <input class="calc-button num" type="button" value="8" onclick="setExpression('8')">
+                        </div>
+                        <div>
+                            <input class="calc-button num" type="button" value="9" onclick="setExpression('9')">
+                        </div>
+                        <div>
+                            <input id="/" class="calc-button right-op" type="button" value="&#247;" onclick="setExpression('/')">
+                        </div>
+                    </div>
+
+                    <div class="calc-padding row justify-content-center">
+                        <div>
+                            <input class="calc-button num" type="button" value="4" onclick="setExpression('4')">
+                        </div>
+                        <div>
+                            <input class="calc-button num" type="button" value="5" onclick="setExpression('5')">
+                        </div>
+                        <div>
+                            <input class="calc-button num" type="button" value="6" onclick="setExpression('6')">
+                        </div>
+                        <div>
+                            <input id="*" class="calc-button right-op" type="button" value="&times;" onclick="setExpression('*')">
+                        </div>
+                    </div>
+
+                    <div class="calc-padding row justify-content-center">
+                        <div>
+                            <input class="calc-button num" type="button" value="1" onclick="setExpression('1')">
+                        </div>
+                        <div>
+                            <input class="calc-button num" type="button" value="2" onclick="setExpression('2')">
+                        </div>
+                        <div>
+                            <input class="calc-button num" type="button" value="3" onclick="setExpression('3')">
+                        </div>
+                        <div>
+                            <input id="-" class="calc-button right-op" type="button" value="-" onclick="setExpression('-')">
+                        </div>
+                    </div>
+
+                    <div class="calc-padding row justify-content-center">
+                        <div>
+                            <input id="." class="calc-button num" type="button" value="." onclick="setExpression('.')">
+                        </div>
+                        <div>
+                            <input class="calc-button num" type="button" value="0" onclick="setExpression('0')">
+                        </div>
+                        <div>
+                            <input class="calc-button num" type="button" value="=" onclick="solve()">
+                        </div>
+                        <div>
+                            <input id="+" class="calc-button right-op" type="button" value="+" onclick="setExpression('+')">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-outline-light" data-toggle="modal" data-target="#calc-info-modal" data-dismiss="modal">More Info</a>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="{% static "js/calculator.js" %}"></script>

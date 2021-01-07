@@ -1,0 +1,35 @@
+{% extends 'MainApp/dashboard_base.html' %}
+
+{% block dashboard %}
+
+
+<div class="row">
+    <div class="today-row col-md-12">
+        <div class="card scroll">
+            <h5 class="card-header text-center">{{ object.name }}</h5>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="today-entry col-md-6">
+                        <h5 class="today-header">Foods</h5>
+                        {% for i in object.foods.all %}
+                            <div>{{i}}</div>
+                        {% endfor %}
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="today-header">Calories/Macros</h5>
+                        <div class="card-items">Protein: {{ object.total_protein }}g</div>
+                        <div class="card-items">Fats: {{ object.total_fats }}g</div>
+                        <div class="card-items">Carbs: {{ object.total_carbs }}g</div>
+                        <div class="card-items">Calories: {{ object.total_calories }}</div>
+                    </div>
+                </div>
+                <a class="btn btn-reg" href="{% url 'meal-update' object.id %}">Update</a>
+                <a class="btn btn-delete" href="{% url 'meal-delete' object.id %}">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock dashboard %}
